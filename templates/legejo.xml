@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Legejo</Name>
+  <Repository>slurvdjur/legejo:1</Repository>
+  <Registry>https://hub.docker.com/r/slurvdjur/legejo</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Icon>https://raw.githubusercontent.com/jularboolean/unraid-templates/main/legejo.png</Icon>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <Overview>Legejo is a self-hosted library for your EPUB books. Read in the browser, sync books, reading positions and highlights with a Kobo, use any OPDS reading app, and keep KOReader in step. Share shelves with other users, listen to audiobooks, and federate shelves of free books over ActivityPub so they can be followed from Mastodon or another Legejo. PDF and comics (CBZ) are kept too. Everything, the SQLite database included, lives in the appdata folder. Sign in with the admin user and password below; when the password is left empty, one is generated and printed once in the container log.</Overview>
+  <Support>https://github.com/jularboolean/legejo/issues</Support>
+  <Project>https://github.com/jularboolean/legejo</Project>
+  <TemplateURL>https://raw.githubusercontent.com/jularboolean/unraid-templates/main/templates/legejo.xml</TemplateURL>
+  <ReadMe>https://github.com/jularboolean/legejo#readme</ReadMe>
+  <Category>MediaApp:Books MediaServer:Books</Category>
+  <ExtraSearchTerms>ebook epub kobo opds koreader library reader audiobook calibre fediverse activitypub</ExtraSearchTerms>
+  <License>AGPL-3.0</License>
+  <Changes>Initial template, Legejo 1.x.</Changes>
+  <Date>2026-10-18</Date>
+  <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Port for the web app, OPDS and the Kobo." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Appdata" Target="/data" Default="/mnt/user/appdata/legejo" Mode="rw" Description="The library: database, book files, covers and audiobooks." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/legejo</Config>
+  <Config Name="Admin user" Target="LEGEJO_ADMIN_USER" Default="admin" Description="The first admin account, created on the first start." Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
+  <Config Name="Admin password" Target="LEGEJO_ADMIN_PASSWORD" Default="" Description="Its password, used only on the first start. Leave empty to have one generated and printed once in the log." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="Public URL" Target="LEGEJO_PUBLIC_URL" Default="" Description="The address users reach Legejo on, e.g. https://books.example.org. Needed for federation and for links in mail; with https, session cookies are marked Secure. Leave empty for use on the local network." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Search inside the books" Target="LEGEJO_FULLTEXT" Default="false" Description="true keeps the text of the EPUBs in the database for searching inside them." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="MCP server" Target="LEGEJO_MCP" Default="false" Description="true turns on the read-only MCP server for AI assistants at /api/mcp." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="SMTP host" Target="LEGEJO_SMTP_HOST" Default="" Description="Mail server, for self-registration, invitations and password reset. Mail is off when empty." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="SMTP port" Target="LEGEJO_SMTP_PORT" Default="587" Description="Mail server port." Type="Variable" Display="advanced" Required="false" Mask="false">587</Config>
+  <Config Name="SMTP user" Target="LEGEJO_SMTP_USER" Default="" Description="Mail server user." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="SMTP password" Target="LEGEJO_SMTP_PASSWORD" Default="" Description="Mail server password." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="Mail from" Target="LEGEJO_MAIL_FROM" Default="" Description="Sender address, e.g. Legejo &lt;books@example.org&gt;." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Librarian API key" Target="LEGEJO_AI_API_KEY" Default="" Description="Key for an OpenAI-compatible language model; turns on the librarian, which suggests books. The account behind the key pays." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="OIDC issuer" Target="LEGEJO_OIDC_ISSUER" Default="" Description="Single sign-on with OpenID Connect; off when empty. See the README for the other LEGEJO_OIDC_* settings." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="OIDC client id" Target="LEGEJO_OIDC_CLIENT_ID" Default="" Description="Client id for single sign-on." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="OIDC client secret" Target="LEGEJO_OIDC_CLIENT_SECRET" Default="" Description="Client secret for single sign-on." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+</Container>

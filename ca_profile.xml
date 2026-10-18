@@ -1,0 +1,9 @@
+<CommunityApplications>
+  <Profile>
+Unraid templates for [Legejo](https://github.com/jularboolean/legejo), a self-hosted library for EPUB books with a web reader, Kobo sync, OPDS for reading apps, KOReader progress sync, shared shelves, audiobooks and shelves federated over ActivityPub.
+
+The templates use the official image, `slurvdjur/legejo`. For help with Legejo itself, open an issue in the [Legejo repository](https://github.com/jularboolean/legejo/issues); for the templates, in [this repository](https://github.com/jularboolean/unraid-templates/issues).
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/jularboolean/unraid-templates/main/legejo.png</Icon>
+  <WebPage>https://github.com/jularboolean/unraid-templates</WebPage>
+</CommunityApplications>
