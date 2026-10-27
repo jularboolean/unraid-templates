@@ -8,7 +8,7 @@
   <Privileged>false</Privileged>
   <Icon>https://raw.githubusercontent.com/jularboolean/unraid-templates/main/legejo.png</Icon>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
-  <Overview>Legejo is a self-hosted library for your EPUB books. Read in the browser, sync books, reading positions and highlights with a Kobo, use any OPDS reading app, and keep KOReader in step. Share shelves with other users, listen to audiobooks, and federate shelves of free books over ActivityPub so they can be followed from Mastodon or another Legejo. PDF and comics (CBZ) are kept too. Everything, the SQLite database included, lives in the appdata folder. Sign in with the admin user and password below; when the password is left empty, one is generated and printed once in the container log.</Overview>
+  <Overview>Legejo is a self-hosted library for your EPUB books. Read in the browser, sync books, reading positions and highlights with a Kobo, use any OPDS reading app, and keep KOReader in step. Share shelves with other users, listen to audiobooks, and federate shelves of free books over ActivityPub so they can be followed from Mastodon or another Legejo. PDF files and comics (CBZ) are read in the browser too. Everything, the SQLite database included, lives in the appdata folder. Sign in with the admin user and password below; when the password is left empty, open the web UI and create the admin account there. Mail and the rest can then be set up on the Admin page.</Overview>
   <Support>https://github.com/jularboolean/legejo/issues</Support>
   <Project>https://github.com/jularboolean/legejo</Project>
   <TemplateURL>https://raw.githubusercontent.com/jularboolean/unraid-templates/main/templates/legejo.xml</TemplateURL>
@@ -17,11 +17,11 @@
   <ExtraSearchTerms>ebook epub kobo opds koreader library reader audiobook calibre fediverse activitypub</ExtraSearchTerms>
   <License>AGPL-3.0</License>
   <Changes>Initial template, Legejo 1.x.</Changes>
-  <Date>2026-10-18</Date>
+  <Date>2026-10-27</Date>
   <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Port for the web app, OPDS and the Kobo." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
   <Config Name="Appdata" Target="/data" Default="/mnt/user/appdata/legejo" Mode="rw" Description="The library: database, book files, covers and audiobooks." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/legejo</Config>
-  <Config Name="Admin user" Target="LEGEJO_ADMIN_USER" Default="admin" Description="The first admin account, created on the first start." Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
-  <Config Name="Admin password" Target="LEGEJO_ADMIN_PASSWORD" Default="" Description="Its password, used only on the first start. Leave empty to have one generated and printed once in the log." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="Admin user" Target="LEGEJO_ADMIN_USER" Default="admin" Description="The first admin account, created on the first start together with the password below." Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
+  <Config Name="Admin password" Target="LEGEJO_ADMIN_PASSWORD" Default="" Description="Its password, used only on the first start. Leave empty to create the admin account in the browser instead: the first visitor of the web UI is asked to make it." Type="Variable" Display="always" Required="false" Mask="true"></Config>
   <Config Name="Public URL" Target="LEGEJO_PUBLIC_URL" Default="" Description="The address users reach Legejo on, e.g. https://books.example.org. Needed for federation and for links in mail; with https, session cookies are marked Secure. Leave empty for use on the local network." Type="Variable" Display="always" Required="false" Mask="false"></Config>
   <Config Name="Search inside the books" Target="LEGEJO_FULLTEXT" Default="false" Description="true keeps the text of the EPUBs in the database for searching inside them." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
   <Config Name="MCP server" Target="LEGEJO_MCP" Default="false" Description="true turns on the read-only MCP server for AI assistants at /api/mcp." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
